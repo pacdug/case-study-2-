@@ -1,4 +1,0 @@
-Order ID: 1212
-User: dung
-Product: iphone
-Price: 12.0

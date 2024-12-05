@@ -26,7 +26,6 @@ public class FileUtil{
         if (content == null) {
             throw new IllegalArgumentException("Content cannot be null.");
         }
-
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             writer.write(content);
         } catch (IOException e) {
@@ -38,7 +37,6 @@ public class FileUtil{
         if (filename == null || filename.isEmpty()) {
             throw new IllegalArgumentException("Filename cannot be null or empty.");
         }
-
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
             return in.readObject();
         } catch (IOException | ClassNotFoundException e) {
