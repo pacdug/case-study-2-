@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Date;
+
 public class Order {
     private User user;
     private Product product;

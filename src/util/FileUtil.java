@@ -1,6 +1,12 @@
 package util;
 
+import model.Order;
+import model.Product;
+import model.User;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileUtil{
 
@@ -11,7 +17,6 @@ public class FileUtil{
         if (object == null) {
             throw new IllegalArgumentException("Object cannot be null.");
         }
-
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
             out.writeObject(object);
         } catch (IOException e) {
@@ -43,4 +48,5 @@ public class FileUtil{
             throw new IOException("Failed to read object from binary file: " + filename, e);
         }
     }
+
 }

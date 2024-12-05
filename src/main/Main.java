@@ -5,6 +5,7 @@ import service.*;
 import exception.ValidationException;
 import factory.UserFactory;
 import util.FileUtil;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -65,10 +66,8 @@ public class Main {
                         System.out.print("Enter Order ID to edit: ");
                         String orderIdToEdit = scanner.nextLine();
 
-                        // Tìm đơn hàng cần sửa
                         Order orderToEdit = findOrderById(orders, orderIdToEdit);
                         if (orderToEdit != null) {
-                            // Nhập thông tin mới cho sản phẩm
                             System.out.print("Enter new product ID: ");
                             String newProductId = scanner.nextLine();
 
@@ -79,17 +78,9 @@ public class Main {
                             double newProductPrice = scanner.nextDouble();
                             scanner.nextLine();  // Đọc ký tự newline
 
-                            // Tạo sản phẩm mới và cập nhật đơn hàng
                             Product newProduct = new Product(newProductId, newProductName, newProductPrice);
                             orderToEdit.setProduct(newProduct);
                             System.out.println("Đơn hàng đã được cập nhật.");
-
-                            // Ghi lại thông tin đơn hàng đã sửa vào file văn bản
-                            FileUtil.writeTextFile("orders.txt", generateOrderDetails(orders));
-
-                            // Ghi lại thông tin người dùng vào file nhị phân (nếu cần)
-                            FileUtil.writeBinaryFile("users.dat", user);
-
                         } else {
                             System.out.println("Không tìm thấy đơn hàng với ID: " + orderIdToEdit);
                         }
@@ -170,3 +161,4 @@ public class Main {
         return details.toString();
     }
 }
+
