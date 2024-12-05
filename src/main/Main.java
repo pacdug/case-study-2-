@@ -52,11 +52,13 @@ public class Main {
                     "\nPrice: " + order.getProduct().getPrice());
 
             // Đọc Order từ file và hiển thị
-            String orderContent = FileUtil.readFromFile("order.txt");
+            String orderContent = (String) FileUtil.readFromFile("order.txt");
             System.out.println("Order Details: \n" + orderContent);
 
         } catch (ValidationException | IOException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             // Đóng Scanner để giải phóng tài nguyên
             scanner.close();
